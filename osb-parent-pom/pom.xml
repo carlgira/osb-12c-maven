@@ -46,4 +46,48 @@
             </plugins>
         </pluginManagement>
     </build>
+    <profiles>
+        <profile>
+            <id>run-integration-test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.smartbear.soapui</groupId>
+                        <artifactId>soapui-maven-plugin</artifactId>
+                        <version>5.1.2</version>
+                        <configuration>
+                            <soapuiProperties>
+                                <property>
+                                    <name>soapui.logroot</name>
+                                    <value>${project.build.directory}/soapui-logs/</value>
+                                </property>
+                            </soapuiProperties>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>integration-test</phase>
+                                <id>test-suites</id>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                                <configuration>
+                                    <projectFile>${basedir}${file.separator}src${file.separator}test${file.separator}resources${file.separator}${project.artifactId}-soapui.xml</projectFile>
+                                    <outputFolder>${basedir}/target/integration-test/reports</outputFolder>
+                                    <printReport>true</printReport>
+                                    <exportAll>true</exportAll>
+                                    <testFailIgnore>false</testFailIgnore>
+                                    <settingsFile>${project.build.directory}${file.separator}soapui-settings.xml</settingsFile>
+                                    <projectProperties>
+                                        <value>server.listen.port=${osb.listen.port}</value>
+                                        <value>server.hostname=${osb.hostName}</value>
+                                        <value>properties.file=${basedir}${file.separator}src${file.separator}test${file.separator}resources${file.separator}${project.artifactId}-endpoints.properties</value>
+                                    </projectProperties>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
