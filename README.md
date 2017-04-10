@@ -14,8 +14,11 @@ osb-12c-maven
 5. Use the ServiceBusApplication to test the "package" and the "deploy".
 
 	5.1 To package use the next:
+	
 		- mvn clean package
 
 	5.2 To deploy use the next:
+	
 		- mvn -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 pre-integration-test
+		
 		-  mvn -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 -Ddeployment.customization.file=custom_file.xml pre-integration-test
