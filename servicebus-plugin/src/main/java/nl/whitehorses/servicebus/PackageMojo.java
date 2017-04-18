@@ -74,7 +74,7 @@ public class PackageMojo extends AbstractMojo {
     @Parameter
     private String[] includes;
 
-    @Parameter(required = false)
+    @Parameter(property = "deploy.file", required = false)
     private File resources;
 
     @Override

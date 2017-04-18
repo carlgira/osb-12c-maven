@@ -13,77 +13,65 @@
                 <directory>${project.basedir}</directory>
             </resource>
         </resources>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>nl.whitehorses.servicebus</groupId>
-                    <artifactId>servicebus-plugin</artifactId>
-                    <version>1.1</version>
-                    <extensions>true</extensions>
-                    <executions>
-                        <execution>
-                            <phase>pre-integration-test</phase>
-                            <id>deploy-assembly</id>
-                            <goals>
-                                <goal>deploy-assembly</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <projectDir>${project.basedir}/../../</projectDir>
-                        <system>false</system>
-                        <exportLevel>RESOURCE</exportLevel>
-                        <includes>
-                            <include>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/**</include>
-                        </includes>
-                        <excludes>
-                            <exclude>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/pom.xml</exclude>
-                            <exclude>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/.data/**</exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
     <profiles>
         <profile>
-            <id>run-integration-test</id>
+            <id>deploy-osb-service</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>com.smartbear.soapui</groupId>
-                        <artifactId>soapui-maven-plugin</artifactId>
-                        <version>5.1.2</version>
-                        <configuration>
-                            <soapuiProperties>
-                                <property>
-                                    <name>soapui.logroot</name>
-                                    <value>${project.build.directory}/soapui-logs/</value>
-                                </property>
-                            </soapuiProperties>
-                        </configuration>
+                        <groupId>nl.whitehorses.servicebus</groupId>
+                        <artifactId>servicebus-plugin</artifactId>
+                        <version>1.1</version>
+                        <extensions>true</extensions>
                         <executions>
                             <execution>
-                                <phase>integration-test</phase>
-                                <id>test-suites</id>
+                                <phase>pre-integration-test</phase>
+                                <id>deploy-assembly</id>
                                 <goals>
-                                    <goal>test</goal>
+                                    <goal>deploy-assembly</goal>
                                 </goals>
-                                <configuration>
-                                    <projectFile>${basedir}${file.separator}src${file.separator}test${file.separator}resources${file.separator}${project.artifactId}-soapui.xml</projectFile>
-                                    <outputFolder>${basedir}/target/integration-test/reports</outputFolder>
-                                    <printReport>true</printReport>
-                                    <exportAll>true</exportAll>
-                                    <testFailIgnore>false</testFailIgnore>
-                                    <settingsFile>${project.build.directory}${file.separator}soapui-settings.xml</settingsFile>
-                                    <projectProperties>
-                                        <value>server.listen.port=${osb.listen.port}</value>
-                                        <value>server.hostname=${osb.hostName}</value>
-                                        <value>properties.file=${basedir}${file.separator}src${file.separator}test${file.separator}resources${file.separator}${project.artifactId}-endpoints.properties</value>
-                                    </projectProperties>
-                                </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            <projectDir>${project.basedir}/../../</projectDir>
+                            <system>false</system>
+                            <exportLevel>RESOURCE</exportLevel>
+                            <includes>
+                                <include>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/**</include>
+                            </includes>
+                            <excludes>
+                                <exclude>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/pom.xml</exclude>
+                                <exclude>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/.data/**</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>deploy-osb-resources</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>nl.whitehorses.servicebus</groupId>
+                        <artifactId>servicebus-plugin</artifactId>
+                        <version>1.1</version>
+                        <extensions>true</extensions>
+                        <executions>
+                            <execution>
+                                <phase>pre-integration-test</phase>
+                                <id>deploy-assembly</id>
+                                <goals>
+                                    <goal>deploy-assembly</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <projectDir>${project.basedir}/../</projectDir>
+                            <system>false</system>
+                            <exportLevel>RESOURCE</exportLevel>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

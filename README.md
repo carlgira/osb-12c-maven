@@ -15,10 +15,14 @@ osb-12c-maven
 
 	5.1 To package use the next:
 	
-		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 package
+		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -P deploy-osb-service clean package
+
+		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Ddeploy.file=deploy-file.xml -P deploy-osb-resources package
 
 	5.2 To deploy use the next:
 	
-		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 pre-integration-test
+		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 -Ddeploy.file=deploy-file.xml -P deploy-osb-resources pre-integration-test
+
+		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 -P deploy-osb-service pre-integration-test
 		
-		-  mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 -Ddeployment.customization.file=custom_file.xml pre-integration-test
+		-  mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 -Ddeployment.customization.file=custom_file.xml -P deploy-osb-service pre-integration-test
