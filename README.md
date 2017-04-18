@@ -14,8 +14,11 @@ osb-12c-maven
 5. Use the ServiceBusApplication to test the "package" and the "deploy".
 
 	5.1 To package use the next:
+	
 		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 package
 
 	5.2 To deploy use the next:
+	
 		- mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 pre-integration-test
+		
 		-  mvn -Doracle.home=/u01/app/oracle/fmw/12.2 -Dserver.url=http://localhost:7001 -Dserver.username=weblogic -Dserver.password=welcome1 -Ddeployment.customization.file=custom_file.xml pre-integration-test
