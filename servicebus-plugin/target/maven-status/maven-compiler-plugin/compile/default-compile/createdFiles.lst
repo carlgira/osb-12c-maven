@@ -1,0 +1,7 @@
+nl/whitehorses/servicebus/archiver/PlexusIoSbarFileResourceCollection.class
+nl/whitehorses/servicebus/archiver/SbarUnArchiver.class
+nl/whitehorses/servicebus/configjar/ExportLevel.class
+nl/whitehorses/servicebus/DeployAssemblyMojo.class
+nl/whitehorses/servicebus/PackageMojo.class
+nl/whitehorses/servicebus/configjar/ConfigJarSettings.class
+nl/whitehorses/servicebus/archiver/SbarArchiver.class

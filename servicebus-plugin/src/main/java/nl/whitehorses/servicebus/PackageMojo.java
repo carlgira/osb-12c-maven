@@ -56,7 +56,7 @@ public class PackageMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project}")
     private MavenProject project;
 
-    @Parameter(required = true)
+    @Parameter(property = "oracle.home", required = true)
     private File oracleHome;
 
     @Parameter(required = true)

@@ -1,0 +1,7 @@
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/PackageMojo.java
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/configjar/ConfigJarSettings.java
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/configjar/ExportLevel.java
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/archiver/SbarUnArchiver.java
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/archiver/PlexusIoSbarFileResourceCollection.java
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/archiver/SbarArchiver.java
+/home/oracle/files/osb-12c-maven/servicebus-plugin/src/main/java/nl/whitehorses/servicebus/DeployAssemblyMojo.java

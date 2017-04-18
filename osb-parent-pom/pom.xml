@@ -30,7 +30,6 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <oracleHome>/u01/app/oracle/fmw/12.2</oracleHome>
                         <projectDir>${project.basedir}/../../</projectDir>
                         <system>false</system>
                         <exportLevel>RESOURCE</exportLevel>
