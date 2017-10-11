@@ -87,6 +87,10 @@ public class PackageMojo extends AbstractMojo {
 
         File artifactfile = new File(outputDir, SBAR_FILENAME);
 
+        if(artifactfile.exists()){
+            return;
+        }
+
         try {
             new ConfigJarSettings().create(this.project, artifactfile, outputDir, system, exportLevel, getIncludes(),
                                            getExcludes(), this.projectDir);
