@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.oracle</groupId>
+    <groupId>com.oracle.osb</groupId>
     <artifactId>osb-parent-pom</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
@@ -20,9 +20,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>nl.whitehorses.servicebus</groupId>
-                        <artifactId>servicebus-plugin</artifactId>
-                        <version>1.1</version>
+                        <groupId>com.oracle.osb</groupId>
+                        <artifactId>osb-compile-plugin</artifactId>
+                        <version>1.0</version>
                         <extensions>true</extensions>
                         <executions>
                             <execution>
@@ -34,15 +34,15 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <projectDir>${project.basedir}/../../</projectDir>
+                            <projectDir>${project.basedir}</projectDir>
                             <system>false</system>
                             <exportLevel>RESOURCE</exportLevel>
                             <includes>
-                                <include>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/**</include>
+                                <include>/**</include>
                             </includes>
                             <excludes>
-                                <exclude>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/pom.xml</exclude>
-                                <exclude>*/${project.file.parentFile.parentFile.name}/${project.file.parentFile.name}/.data/**</exclude>
+                                <exclude>/pom.xml</exclude>
+                                <exclude>/.data/**</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
@@ -54,9 +54,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>nl.whitehorses.servicebus</groupId>
-                        <artifactId>servicebus-plugin</artifactId>
-                        <version>1.1</version>
+                        <groupId>com.oracle.osb</groupId>
+                        <artifactId>osb-compile-plugin</artifactId>
+                        <version>1.0</version>
                         <extensions>true</extensions>
                         <executions>
                             <execution>
@@ -68,7 +68,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <projectDir>${project.basedir}/../</projectDir>
+                            <projectDir>${project.basedir}</projectDir>
                             <system>false</system>
                             <exportLevel>RESOURCE</exportLevel>
                         </configuration>
